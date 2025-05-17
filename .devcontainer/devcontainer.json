@@ -1,0 +1,14 @@
+{
+    "name": "qt_example",
+    "build": { "dockerfile": "Dockerfile" },
+
+    "customizations": {
+        "vscode": {
+        "extensions": [
+            "ms-vscode.cmake-tools",
+            "ms-vscode.cpptools-extension-pack",
+            "theqtcompany.qt-cpp-pack"
+        ]
+        }
+    }
+}
