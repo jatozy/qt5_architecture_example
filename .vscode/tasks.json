@@ -1,0 +1,70 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "clean",
+			"type": "shell",
+			"command": "/bin/bash -ic 'rm -rf build'",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			}
+		},
+		{
+			"label": "configure (Debug)",
+			"type": "shell",
+			"command": "/bin/bash -ic 'cmake ./AudioMixer -DCMAKE_BUILD_TYPE=Debug -B build'",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			}
+		},
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "/bin/bash -ic 'cmake --build build -j 16'",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			}
+		},
+		{
+			"label": "run",
+			"type": "shell",
+			"command": "/bin/bash -ic './AudioApp'",
+			"options": {
+				"cwd": "${workspaceFolder}/build/main"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			}
+		},
+		{
+			"label": "build and run",
+			"type": "shell",
+			"command": "",
+			"options": {
+				"cwd": "${workspaceFolder}/build/main"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"build",
+				"run",
+			]
+		},
+	]
+}

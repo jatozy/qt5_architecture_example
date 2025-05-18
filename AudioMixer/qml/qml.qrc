@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/qml/">
+        <file>AmpD10.qml</file>
+        <file>main.qml</file>
+    </qresource>
+</RCC>

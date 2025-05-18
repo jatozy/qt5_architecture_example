@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "Qt5",
+            "cStandard": "c11",
+            "cppStandard": "c++23",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+}

@@ -1,14 +1,32 @@
 {
     "name": "qt_example",
-    "build": { "dockerfile": "Dockerfile" },
-
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [
+        "--privileged",
+        "-v",
+        "${env:HOME}/.ssh:/home/ubuntu/.ssh:rw",
+        "--network",
+        "host",
+        "-e",
+        "XDG_RUNTIME_DIR=/tmp",
+        "-e",
+        "WAYLAND_DISPLAY=${env:WAYLAND_DISPLAY}",
+        "-v",
+        "${env:XDG_RUNTIME_DIR}/${env:WAYLAND_DISPLAY}:/tmp/${env:WAYLAND_DISPLAY}",
+        "-e",
+        "QT_QPA_PLATFORM=wayland"
+    ],
     "customizations": {
         "vscode": {
-        "extensions": [
-            "ms-vscode.cmake-tools",
-            "ms-vscode.cpptools-extension-pack",
-            "theqtcompany.qt-cpp-pack"
-        ]
+            "extensions": [
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools-extension-pack",
+                "theqtcompany.qt-cpp-pack",
+                "ms-azuretools.vscode-docker",
+                "ebextensions.clang-format-2025"
+            ]
         }
     }
 }
